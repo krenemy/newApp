@@ -1,0 +1,54 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables file
+.env
+
+# Flask specific
+instance/
+.pytest_cache/
+coverage.xml
+nosetests.xml
+*.cover
+*.py,cover
+.tox/
+.nox/
+.coverage
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+.mypy_cache/
+.pylint.d/
+.ruff/
+.flaskenv
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+myenv
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Log files
+*.log
+
+# Database
+*.sqlite3
+*.db
+
+*.json
