@@ -76,7 +76,7 @@ def callback():
         },
         scopes=SCOPES
     )
-    flow.redirect_uri = url_for('callback', _external=True)
+    flow.redirect_uri = f"https://{request.host}/callback"
     # flow.redirect_uri='https://emailextractor.onrender.com/callback'
     print(flow.redirect_uri)
     # Exchange the authorization code for credentials
@@ -96,8 +96,6 @@ def callback():
     }
 
     return redirect(url_for('gmail'))
-
-
     # Check if the user is authenticated
     if 'credentials' not in session:
         return redirect('login')
@@ -113,6 +111,7 @@ def callback():
     results = gmail_service.users().messages().list(userId='me', maxResults=30).execute()
     messages = results.get('messages', [])
     return ''.join()
+
 @app.route('/gmail')
 def gmail():
     # Check if the user is authenticated
