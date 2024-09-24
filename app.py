@@ -13,6 +13,7 @@ from PIL import Image
 import pytesseract
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 app = Flask(__name__)
+app.config['PREFERRED_URL_SCHEME'] = 'https'
 load_dotenv()
 app.secret_key = os.getenv('SECRET_KEY')
 GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
@@ -46,7 +47,7 @@ def login():
     )
     print("before redirect_uri")
     # Redirect URI (must match the one in Google Cloud Console)
-    flow.redirect_uri = url_for('callback', _external=True)
+    flow.redirect_uri = url_for('callback', _external=True, _scheme='https')
     print(flow.redirect_uri)
     authorization_url, state = flow.authorization_url(
         access_type='offline',
