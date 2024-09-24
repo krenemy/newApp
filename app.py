@@ -76,8 +76,7 @@ def callback():
         },
         scopes=SCOPES
     )
-    flow.redirect_uri = f"https://{request.host}/callback"
-    # flow.redirect_uri='https://emailextractor.onrender.com/callback'
+    flow.redirect_uri = url_for('callback', _external=True)
     print(flow.redirect_uri)
     # Exchange the authorization code for credentials
     authorization_response = request.url
