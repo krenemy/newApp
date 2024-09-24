@@ -77,7 +77,7 @@ def callback():
         },
         scopes=SCOPES
     )
-    flow.redirect_uri = url_for('callback', _external=True)
+    flow.redirect_uri = url_for('callback', _external=True,_scheme='https')
     print(flow.redirect_uri)
     # Exchange the authorization code for credentials
     authorization_response = request.url
