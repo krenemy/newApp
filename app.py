@@ -44,10 +44,10 @@ def login():
         },
         scopes=SCOPES
     )
-    
+    print("before redirect_uri")
     # Redirect URI (must match the one in Google Cloud Console)
     flow.redirect_uri = url_for('callback', _external=True)
-
+    print(flow.redirect_uri)
     authorization_url, state = flow.authorization_url(
         access_type='offline',
         include_granted_scopes='true')
